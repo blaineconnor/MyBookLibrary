@@ -14,6 +14,7 @@ struct BookListView: View {
     @State private var presentAddNew = false
     
     @State private var searchTerm: String = ""
+    @State private var bookSortOption = SortingOption.none
     
     var filteredBooks: [Book] {
         guard searchTerm.isEmpty == false else {return books}
@@ -24,12 +25,7 @@ struct BookListView: View {
     
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(filteredBooks) { book in
-                    BookCellView(book: book)
-                }
-                .onDelete(perform: delete(indexSet:))
-            }
+            BookListSubView(searchTerm: searchTerm, bookSortOption: bookSortOption)
             .searchable(text: $searchTerm, prompt: "Search book title")
             .navigationTitle("My Books")
             .navigationDestination(for: Book.self) { book in
@@ -48,22 +44,21 @@ struct BookListView: View {
                         AddNewBookView()
                     })
                 }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Menu {
+                        ForEach(SortingOption.allCases) { sortOption in
+                            Button(sortOption.title) {
+                                bookSortOption = sortOption
+                            }
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
+                    }
+                }
             }
         }
     }
-    private func delete(indexSet: IndexSet) {
-        indexSet.forEach { index in
-            let book = books[index]
-            context.delete(book)
-            
-            do{
-                try context.save()
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
 }
 
 #Preview {
