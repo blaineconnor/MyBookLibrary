@@ -9,10 +9,15 @@ import SwiftUI
 import SwiftData
 
 struct AddNewGenre: View {
+    
+    // MARK: - PROPERTY
+    
     @State private var name: String = ""
     
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
+    
+    // MARK: - BODY
         
     var body: some View {
         NavigationStack {

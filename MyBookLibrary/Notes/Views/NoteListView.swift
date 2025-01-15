@@ -9,9 +9,14 @@ import SwiftUI
 import SwiftData
 
 struct NoteListView: View {
+    
+    // MARK: - PROPERTY
+    
     let book: Book
     
     @Environment(\.modelContext) private var context
+    
+    // MARK: - BODY
     
     var body: some View {
         List {

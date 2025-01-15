@@ -10,8 +10,12 @@ import SwiftData
 
 struct GenreSelectionView: View {
     
+    // MARK: - PROPERTY
+    
     @Query(sort: \Genre.name) private var genres: [Genre]
     @Binding var selectedGenres: Set<Genre>
+    
+    // MARK: - BODY
     
     var body: some View {
         List {

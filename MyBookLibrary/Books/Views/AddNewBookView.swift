@@ -11,6 +11,8 @@ import PhotosUI
 
 struct AddNewBookView: View {
     
+    // MARK: - PROPERTY
+    
     @State private var title: String = ""
     @State private var author: String = ""
     @State private var publishedYear: Int?
@@ -26,6 +28,8 @@ struct AddNewBookView: View {
     private var isValid: Bool {
         !title.isEmpty && !author.isEmpty && publishedYear != nil
     }
+    
+    // MARK: - BODY
     
     var body: some View {
         NavigationStack {
@@ -114,6 +118,8 @@ struct AddNewBookView: View {
         }
     }
 }
+
+// MARK: - PREVIEW
 
 #Preview {
     AddNewBookView()

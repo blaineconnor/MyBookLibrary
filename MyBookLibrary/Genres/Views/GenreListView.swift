@@ -10,8 +10,12 @@ import SwiftData
 
 struct GenreListView: View {
     
+    // MARK: - PROPERTY
+    
     @State private var presentAddNew = false
     @State private var sortOrder: GenreSortOrder = .forward
+    
+    // MARK: - BODY
     
     var body: some View {
         NavigationStack {

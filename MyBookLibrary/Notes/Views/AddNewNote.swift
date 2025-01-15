@@ -9,6 +9,9 @@ import SwiftUI
 import SwiftData
 
 struct AddNewNote: View {
+    
+    // MARK: - PROPERTY
+    
     let book: Book
     
     @State private var title: String = ""
@@ -16,6 +19,8 @@ struct AddNewNote: View {
     
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
+    
+    // MARK: - BODY
         
     var body: some View {
         Form {

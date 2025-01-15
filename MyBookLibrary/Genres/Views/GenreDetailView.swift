@@ -9,7 +9,11 @@ import SwiftUI
 
 struct GenreDetailView: View {
     
+    // MARK: - PROPERTY
+    
     let genre: Genre
+    
+    // MARK: - BODY
     
     var body: some View {
         VStack {

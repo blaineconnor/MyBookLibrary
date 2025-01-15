@@ -9,12 +9,17 @@ import SwiftUI
 import SwiftData
 
 struct GenreListSubview: View {
+    
+    // MARK: - PROPERTY
+    
     @Query private var genres: [Genre]
     @Environment(\.modelContext) private var context
     
     init(sortOrder: GenreSortOrder = .forward) {
         _genres = Query(FetchDescriptor<Genre>(sortBy: [ sortOrder.sortOption]), animation: .snappy)
     }
+    
+    // MARK: - BODY
     
     var body: some View {
         Group {
@@ -49,6 +54,8 @@ struct GenreListSubview: View {
         }
     }
 }
+
+// MARK: - PREVIEW
 
 #Preview {
     GenreListSubview()

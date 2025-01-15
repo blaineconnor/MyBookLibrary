@@ -9,6 +9,9 @@ import SwiftUI
 import SwiftData
 
 struct BookListView: View {
+    
+    // MARK: - PROPERTY
+    
     @Environment(\.modelContext) private var context
     @Query private var books: [Book]
     @State private var presentAddNew = false
@@ -22,6 +25,8 @@ struct BookListView: View {
             $0.title.localizedCaseInsensitiveContains(searchTerm)
         }
     }
+    
+    // MARK: - BODY
     
     var body: some View {
         NavigationStack {
@@ -60,6 +65,8 @@ struct BookListView: View {
         }
     }
 }
+
+// MARK: - PREVIEW
 
 #Preview {
     BookListView()

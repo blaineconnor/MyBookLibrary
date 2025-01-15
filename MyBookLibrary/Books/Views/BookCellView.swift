@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct BookCellView: View {
+    
+    // MARK: - PROPERTY
+    
     let book: Book
+    
+    // MARK: - BODY
     
     var body: some View {
         NavigationLink(value: book) {

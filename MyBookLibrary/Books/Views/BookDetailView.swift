@@ -9,6 +9,9 @@ import SwiftUI
 import PhotosUI
 
 struct BookDetailView: View {
+    
+    // MARK: - PROPERTY
+    
     let book: Book
     
     @Environment(\.modelContext) private var context
@@ -35,6 +38,8 @@ struct BookDetailView: View {
         
         self._selectedGenres = State.init(initialValue: Set(book.genre))
     }
+    
+    // MARK: - PARTIAL VIEW
     
     private var bookCoverUI: some View {
         HStack {
@@ -68,6 +73,8 @@ struct BookDetailView: View {
             }
         }
     }
+    
+    // MARK: - BODY
     
     var body: some View {
         Form {

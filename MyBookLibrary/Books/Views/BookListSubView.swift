@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct BookListSubView: View {
+    
     // MARK: - PROPERTY
     
     @Environment(\.modelContext) private var context
@@ -28,6 +29,7 @@ struct BookListSubView: View {
     }
     
     // MARK: - BODY
+    
     var body: some View {
         Group {
             if !books.isEmpty {
